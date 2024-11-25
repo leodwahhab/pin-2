@@ -15,12 +15,14 @@ import java.time.LocalDate;
 @Table(name = "produto")
 public class Produto {
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
-    private double preco;
+
+    private Double preco;
+
     private LocalDate dataValidade;
     private LocalDate dataColeta;
     private String epocaProducao;

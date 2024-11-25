@@ -16,12 +16,14 @@ import lombok.Setter;
 @Table(name = "fornecedor")
 public class Fornecedor {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
 
     private String email;
+
+    private int avaliacao;
 
     public Fornecedor(FornecedorDTO fornecedorDTO) {
         this.email = fornecedorDTO.email();

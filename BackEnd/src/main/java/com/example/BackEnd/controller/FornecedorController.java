@@ -1,25 +1,36 @@
 package com.example.BackEnd.controller;
 
-import com.example.BackEnd.repository.FornecedorRepository;
 import com.example.BackEnd.dtos.FornecedorDTO;
-import com.example.BackEnd.model.Fornecedor;
+import com.example.BackEnd.service.FornecedorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/fornecedor")
 public class FornecedorController {
     @Autowired
-    FornecedorRepository fornecedorRepository;
+    FornecedorService fornecedorService;
 
     @PostMapping
     public ResponseEntity cadastrarFornecedor(@RequestBody FornecedorDTO fornecedorDTO) {
-            return ResponseEntity.ok(
-                    fornecedorRepository.save(new Fornecedor(fornecedorDTO))
-            );
+        fornecedorService.cadastrar(fornecedorDTO);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity avaliarFornecedor(@RequestBody int avaliacao, @PathVariable Long id) {
+        fornecedorService.avaliarFornecedor(avaliacao, id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<FornecedorDTO>> getFornecedores() {
+        return ResponseEntity.ok(
+                fornecedorService.getFornecedores()
+        );
     }
 }
