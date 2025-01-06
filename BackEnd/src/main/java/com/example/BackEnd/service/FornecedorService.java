@@ -32,18 +32,18 @@ public class FornecedorService {
         fornecedorRepository.save(fornecedor);
     }
 
-    public List<FornecedorDTO> getFornecedores() {
+    public List<Fornecedor> getFornecedores() {
         List<FornecedorDTO> fornecedorDTOList = new ArrayList<>();
         List<Fornecedor> fornecedorList = fornecedorRepository.findAll();
 
-        fornecedorList.forEach(fornecedor -> fornecedorDTOList.add(
-                new FornecedorDTO(
-                        fornecedor.getNome(),
-                        fornecedor.getEmail(),
-                        fornecedor.getAvaliacao()
-                )
-        ));
+//        fornecedorList.forEach(fornecedor -> fornecedorDTOList.add(
+//                new FornecedorDTO(
+//                        fornecedor.getNome(),
+//                        fornecedor.getEmail(),
+//                        fornecedor.getAvaliacao()
+//                )
+//        ));
 
-        return fornecedorDTOList;
+        return fornecedorList;
     }
 }

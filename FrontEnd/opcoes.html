@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Navegação</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #eafaea; /* Verde claro */
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #006400; /* Verde escuro */
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #006400; /* Verde escuro */
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #008000; /* Verde padrão */
+        }
+
+        @media (max-width: 600px) {
+            .button-container {
+                flex-direction: column;
+            }
+
+            .button-container a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script> 
+    if(localStorage.getItem('usuarioId') == undefined) {
+        window.location.href = 'index.html'
+    }</script>
+</head>
+<body>
+    <h1>Bem-vindo!</h1>
+    <div class="button-container">
+        <a href="historico.html">Exibir Histórico</a>
+        <a href="produto.html">Cadastrar Produto</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:latest
+    environment:
+      - "ACCEPT_EULA=Y"
+      - "MSSQL_SA_PASSWORD=yourStrong(!)Password"
+      - "MSSQL_PID=Evaluation"
+    ports:
+    - "1433:1433"
+    networks:
+      - backend-network
+    restart: always
+
+  api:
+    build:
+      context: ./BackEnd
+    ports:
+      - '8080:8080'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://db:1433;databaseName=master;encrypt=false;trustServerCertificate=true
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=yourStrong(!)Password
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.SQLServerDialect
+      - SPRING_JPA_HIBERNATE_DDL-AUTO=update
+      - SPRING_JPA_HIBERNATE_SHOW-SQL=true
+      - SERVER_PORT=8080
+    networks:
+      - backend-network
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./FrontEnd  # Caminho para o Dockerfile do frontend
+    image: frontend
+    ports:
+      - "80:80"  # Expõe a aplicação frontend na porta 80
+    networks:
+      - backend-network
+    restart: always
+
+  # frontend:
+  #   build:
+  #     context: ./FrontEnd  # Caminho para o Dockerfile do frontend
+  #   image: frontend
+  #   ports:
+  #     - "80:80"  # Expõe a aplicação frontend na porta 80
+  #   networks:
+  #     - backend-network
+  #   volumes:
+  #     - ./FrontEnd:/usr/share/nginx/html  # Mapeia o diretório local para o container
+  #   restart: always  # Isso reinicia o container quando há alterações (relevant only for Docker file change)
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"  # Permite que o frontend se comunique com o backend no Docker Desktop
+  #   environment:
+  #     - NGINX_HOST=localhost
+  #     - NGINX_PORT=80
+
+networks:
+  backend-network:
+    driver: bridge  # Cria uma rede 'bridge' para comunicação entre containers

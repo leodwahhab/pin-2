@@ -28,7 +28,7 @@ public class FornecedorController {
     }
 
     @GetMapping
-    public ResponseEntity<List<FornecedorDTO>> getFornecedores() {
+    public ResponseEntity getFornecedores() {
         return ResponseEntity.ok(
                 fornecedorService.getFornecedores()
         );

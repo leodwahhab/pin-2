@@ -2,7 +2,7 @@ spring:
   application:
     name: BackEnd
   datasource:
-      url: jdbc:sqlserver://localhost:1433;databaseName=master;encrypt=false;trustServerCertificate=true
+      url: jdbc:sqlserver://db:1433;databaseName=master;encrypt=false;trustServerCertificate=true
       username: sa
       password: yourStrong(!)Password
   jpa:
