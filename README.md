@@ -109,11 +109,6 @@ api:
   - Microsoft SQL Server
 - **Containerização**:
   - Docker e Docker Compose
-
-## Agradecimentos
-
-Este projeto foi desenvolvido como parte do TCC de [nome do colega], que permitiu sua publicação pública. Foi uma excelente oportunidade para consolidar conhecimentos e contribuir com uma solução prática e funcional.
-
 ---
 
 Espero que este repositório seja útil para estudantes, desenvolvedores e curiosos. Feedbacks e contribuições são sempre bem-vindos!
