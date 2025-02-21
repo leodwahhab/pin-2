@@ -48,7 +48,6 @@ BackEnd/
 - Arquivo `docker-compose.yml` utilizado para orquestrar os serviços do projeto:
   - **db**: Banco de dados Microsoft SQL Server.
   - **api**: BackEnd containerizado com Spring Boot.
-  - **frontend**: Aplicação FrontEnd servida via Nginx.
 
 #### Configuração dos Serviços no Docker Compose:
 ```yaml
