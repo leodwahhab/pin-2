@@ -1,6 +1,6 @@
-# PIN-2
+# PIN (Projeto Integrado Multidisciplinar)
 
-Este repositório contém o projeto desenvolvido como freelancer para o Trabalho de Conclusão de Curso (TCC) de um colega, que gentilmente autorizou sua publicação. O projeto consiste em um sistema completo com arquitetura separada em FrontEnd, BackEnd e integração via Docker Compose.
+Este repositório contém o projeto desenvolvido como freelancer para um trabalho acadêmico de um colega, que gentilmente autorizou sua publicação. O projeto consiste em um sistema completo com arquitetura separada em FrontEnd, BackEnd e integração via Docker Compose. O projeto consiste na implementação de um sistema de controle de fornecedores e produtos de uma loja de alimentos orgânicos.
 
 ## Estrutura do Projeto
 
